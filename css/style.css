@@ -5,7 +5,6 @@
     display: grid;
     grid-template-columns: repeat(6, auto);
     align-items: center;
-    justify-content: center;
 }
 
 .myrow::before {
@@ -20,7 +19,7 @@
     text-align: center;
     background-color: #f0f0f0;
     height: 40rem;
-    width: 19rem;
+    width: 17.8rem;
     border-radius: 4px;
     margin: 10px;
 }
@@ -2776,6 +2775,10 @@ ul.widget-recent-post {}
         grid-template-columns: auto auto;
     }
 
+    .grids {
+        margin: 5px;
+    }
+
     .navigation {
         float: none;
     }
@@ -2835,6 +2838,10 @@ ul.widget-recent-post {}
 @media only screen and (max-width : 320px) {
     .myrow {
         grid-template-columns: auto auto;
+    }
+
+    .grids {
+        margin: 5px;
     }
 
     .navigation {
