@@ -2708,6 +2708,11 @@ ul.widget-recent-post {}
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
+    .myrow {
+        grid-template-columns: auto auto auto auto auto;
+        justify-content: center;
+    }
+
     .navigation {
         float: none;
     }
@@ -2764,6 +2769,10 @@ ul.widget-recent-post {}
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
+    .myrow {
+        grid-template-columns: auto auto auto auto;
+    }
+
     .navigation {
         float: none;
     }
