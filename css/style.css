@@ -1222,7 +1222,7 @@ label {}
 .hero-section {
     padding-top: 135px;
     padding-bottom: 135px;
-    background: linear-gradient(rgba(36, 39, 38, 0.5), rgba(36, 39, 38, 0.5)), rgba(36, 39, 38, 0.5) url(https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/category/86744294/0/1689661575279-1288498949/page_header_jpg) no-repeat center;
+    background: linear-gradient(rgba(36, 39, 38, 0.5), rgba(36, 39, 38, 0.5)), rgba(36, 39, 38, 0.5) url(../images/page-header.jpg) no-repeat center;
     background-size: cover;
 }
 
@@ -1656,7 +1656,7 @@ label {}
     5.4 Page Header
 ----------------------------------------------*/
 .page-header {
-    background: linear-gradient(rgba(36, 39, 38, 0.5), rgba(36, 39, 38, 0.5)), rgba(36, 39, 38, 0.5) url(https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/category/86744294/0/1689661575279-1288498949/page_header_jpg) no-repeat center;
+    background: linear-gradient(rgba(36, 39, 38, 0.5), rgba(36, 39, 38, 0.5)), rgba(36, 39, 38, 0.5) url(../images/page-header.jpg) no-repeat center;
     background-size: cover;
     margin: 0;
     border-bottom: none;
