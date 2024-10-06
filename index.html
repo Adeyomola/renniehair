@@ -94,29 +94,22 @@
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                     <div class="grids" style="text-align: center;">
-                        <div class="slideshow-container">
-
-                            <!-- Full-width images with number and caption text -->
-                            <div class="mySlides fade" style="display: none;">
-                                <div class="numbertext">1 / 3</div>
-                                <img src="images/all-back.jpeg" style="width:100%">
-                                <div class="text">1</div>
+                        <div class="slideshow-container " style="margin-bottom: 15px;">
+                            <div class="mySlides fade" style="display: none; height: 199px;">
+                                <div class="numbertext">1 / 4</div>
+                                <img src="images/ponytail-cornrow.jpeg" style="height: 100%; border-radius: 2px;">
                             </div>
-                            <div class="mySlides fade" style="display: none;">
-                                <div class="numbertext">2 / 3</div>
-                                <img src="images/all-back-2.jpeg" style="width:100%; height: 500px;">
-                                <div class="text">2</div>
+                            <div class="mySlides fade" style="display: none; height: 199px;">
+                                <div class="numbertext">2 / 4</div>
+                                <img src="images/all-back.jpeg" style="height: 100%; border-radius: 2px;">
                             </div>
-                            <div class="mySlides fade" style="display: none;">
-                                <div class="numbertext">3 / 3</div>
-                                <img src="images/all-back-3.jpeg" style="width:100%">
-                                <div class="text">3</div>
+                            <div class="mySlides fade" style="display: none; height: 199px;">
+                                <div class="numbertext">3 / 4</div>
+                                <img src="images/all-back-2.jpeg" style="height: 100%; border-radius: 2px;">
                             </div>
-
-                            <div style="text-align:center">
-                                <span class="dot" onclick="currentSlide(1)"></span>
-                                <span class="dot" onclick="currentSlide(2)"></span>
-                                <span class="dot" onclick="currentSlide(3)"></span>
+                            <div class="mySlides fade" style="display: none; height: 199px;">
+                                <div class="numbertext">4 / 4</div>
+                                <img src="images/all-back-3.jpeg" style="height: 100%; border-radius: 2px;">
                             </div>
                         </div>
                         <h5>Ponytail Cornrow</h5>
@@ -129,7 +122,6 @@
                                 </button></a>
                         </div>
                     </div>
-
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                     <div class="grids" style="text-align: center;">
@@ -185,8 +177,20 @@
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                     <div class="grids" style="text-align: center;">
-                        <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3741137344.jpg"
-                            alt="Frontal Installation" style="border-radius: 2px; margin-bottom: 15px;">
+                        <div class="slideshow-container " style="margin-bottom: 15px;">
+                            <div class="mySlides fade" style="display: none; height: 199px;">
+                                <div class="numbertext">1 / 3</div>
+                                <img src="images/frontal.jpeg" style="height: 100%; border-radius: 2px;">
+                            </div>
+                            <div class="mySlides fade" style="display: none; height: 199px;">
+                                <div class="numbertext">2 / 3</div>
+                                <img src="images/frontal-2.jpeg" style="height: 100%; border-radius: 2px;">
+                            </div>
+                            <div class="mySlides fade" style="display: none; height: 199px;">
+                                <div class="numbertext">3 / 3</div>
+                                <img src="images/frontal-3.jpeg" style="height: 100%; border-radius: 2px;">
+                            </div>
+                        </div>
                         <h6>Frontal Installation</h6>
                         <div class="time">2 hours</div>
                         <div class="prices">£80</div>
@@ -517,22 +521,25 @@
     <script src="js/sticky-header.js"></script>
     <script>
         let slideIndex = 0;
+        let slideIndex2 = 4;
         showSlides();
 
         function showSlides() {
             let i;
             let slides = document.getElementsByClassName("mySlides");
             let dots = document.getElementsByClassName("dot");
+
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
+
             slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active-dot", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active-dot";
+            if (slideIndex > 3) { slideIndex = 0 }
+            slides[slideIndex].style.display = "block";
+
+            slideIndex2++;
+            if (slideIndex2 + 1 > slides.length) { slideIndex2 = 4 }
+            slides[slideIndex2].style.display = "block"
             setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
     </script>
