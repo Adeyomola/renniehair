@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .myrow {
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .myrow::before {
@@ -18,8 +18,8 @@
 .grids {
     text-align: center;
     background-color: #fff;
-    height: 40rem;
-    width: 17.8rem;
+    height: 35rem;
+    width: 15rem;
     margin: 10px;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
@@ -27,13 +27,14 @@
 
 .grids img {
     width: 100%;
-    height: 50%;
+    height: 45%;
 }
 
 .grids:hover {
     background-color: rgba(0, 0, 0, 0.04);
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
 }
+
 
 .time {
     font-family: 'Roboto';
@@ -48,6 +49,7 @@
 .buttons-custom {
     background-color: #975c70;
     margin-top: 15px;
+    position: relative;
     border-radius: 20px;
     border: none;
     padding: 5px 15px;
@@ -1283,6 +1285,12 @@ label {}
     box-sizing: border-box;
 }
 
+#navigation {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
 #navigation:after,
 #navigation>ul:after {
     content: ".";
@@ -1482,6 +1490,9 @@ label {}
 #navigation.small-screen ul {
     width: 100%;
     display: none;
+    background-color: white;
+    position: fixed;
+    top: 0;
 }
 
 #navigation.small-screen.align-center>ul {
@@ -1490,7 +1501,7 @@ label {}
 
 #navigation.small-screen ul li {
     width: 100%;
-    border-top: 1px solid #474747;
+    border-top: none;
 }
 
 #navigation.small-screen ul ul li,
@@ -1588,6 +1599,7 @@ label {}
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
+    z-index: 100;
 }
 
 #navigation.small-screen #menu-button.menu-opened:before {
@@ -1599,6 +1611,7 @@ label {}
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
+    z-index: 100;
 }
 
 #navigation.small-screen .submenu-button {
@@ -2717,14 +2730,8 @@ ul.widget-recent-post {}
 }
 
 /*==========  Non-Mobile First Method  ==========*/
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-    .myrow {
-        grid-template-columns: auto auto auto auto auto;
-        justify-content: center;
-    }
-
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
     .navigation {
         float: none;
     }
@@ -2777,12 +2784,13 @@ ul.widget-recent-post {}
         padding-left: 0px;
         list-style: none;
     }
+
 }
 
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-    .myrow {
-        grid-template-columns: auto auto auto auto;
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+    .grids {
+        margin: 5px;
     }
 
     .navigation {
@@ -2841,7 +2849,7 @@ ul.widget-recent-post {}
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
+@media only screen and (min-width : 768px) {
     .navigation {
         float: none;
     }
@@ -2897,14 +2905,11 @@ ul.widget-recent-post {}
 
 }
 
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 921px) {
     .myrow {
-        grid-template-columns: auto auto;
-    }
-
-    .grids {
-        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
     }
 
     .navigation {
@@ -2962,14 +2967,12 @@ ul.widget-recent-post {}
 
 }
 
-/* Custom, iPhone Retina */
-@media only screen and (max-width : 320px) {
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1280px) {
     .myrow {
-        grid-template-columns: auto auto;
-    }
-
-    .grids {
-        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(6, auto);
+        align-items: center;
     }
 
     .navigation {
@@ -3024,5 +3027,4 @@ ul.widget-recent-post {}
         padding-left: 0px;
         list-style: none;
     }
-
 }
