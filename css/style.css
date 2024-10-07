@@ -1589,7 +1589,7 @@ label {}
 }
 
 #navigation.small-screen #menu-button.menu-opened:after {
-    top: 23px;
+    top: 0;
     border: 0;
     height: 2px;
     width: 15px;
@@ -1603,7 +1603,7 @@ label {}
 }
 
 #navigation.small-screen #menu-button.menu-opened:before {
-    top: 23px;
+    top: 0px;
     background: #474747;
     width: 15px;
     -webkit-transform: rotate(-45deg);
