@@ -86,10 +86,11 @@
                         <h5>Men Cornrow</h5>
                         <div class="time">1 hour</div>
                         <div class="prices">£50</div>
-                        <div><a href="https://www.picktime.com/2ce03386-ce97-4673-b031-53d94ebb43b9" target="_blank"><button class="buttons-custom">
-                                Book Now
-                            </button></a></div>
-      
+                        <div><a href="https://www.picktime.com/2ce03386-ce97-4673-b031-53d94ebb43b9"
+                                target="_blank"><button class="buttons-custom">
+                                    Book Now
+                                </button></a></div>
+
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -249,8 +250,16 @@
                             </button></a></div>
                 </div>
                 <div class="grids" style="text-align: center;">
-                    <img src="https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/category/86744294/0/1689607504204-1216210171/Untitled_design_jpg"
-                        alt="" style="border-radius: 2px; margin-bottom: 15px;">
+                    <div class="slideshow-container " style="margin-bottom: 15px;">
+                        <div class="mySlides fade" style="display: none; height: 157px;">
+                            <div class="numbertext">1 / 2</div>
+                            <img src="images/fulani-braids.jpg" style="height: 100%; border-radius: 2px;">
+                        </div>
+                        <div class="mySlides fade" style="display: none; height: 157px;">
+                            <div class="numbertext">2 / 2</div>
+                            <img src="images/fulani-braids-2.jpg" style="height: 100%; border-radius: 2px;">
+                        </div>
+                    </div>
                     <h6>Fulani Goddess Braids</h6>
                     <div style="display: grid; grid-template-columns: auto auto;">
                         <div>
@@ -522,6 +531,7 @@
     <script>
         let slideIndex = 0;
         let slideIndex2 = 4;
+        let slideIndex3 = 7
         showSlides();
 
         function showSlides() {
@@ -538,8 +548,13 @@
             slides[slideIndex].style.display = "block";
 
             slideIndex2++;
-            if (slideIndex2 + 1 > slides.length) { slideIndex2 = 4 }
+            if (slideIndex2 > 6) { slideIndex2 = 4 }
             slides[slideIndex2].style.display = "block"
+
+            slideIndex3++;
+            if (slideIndex3 + 1 > slides.length) { slideIndex3 = 7 }
+            slides[slideIndex3].style.display = "block"
+
             setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
     </script>
