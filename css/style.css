@@ -1288,7 +1288,7 @@ label {}
 #navigation {
     position: fixed;
     right: 0;
-    top: 0;
+    top: 25px;
 }
 
 #navigation:after,
