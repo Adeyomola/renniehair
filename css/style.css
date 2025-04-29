@@ -1492,7 +1492,8 @@ label {}
     display: none;
     background-color: white;
     position: fixed;
-    top: 0px;
+    top: 10vh;
+    right: 0px;
 }
 
 #navigation.small-screen.align-center>ul {
