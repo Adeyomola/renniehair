@@ -1288,7 +1288,6 @@ label {}
 #navigation {
     position: absolute;
     right: 0;
-    top: -50px;
 }
 
 #navigation:after,
@@ -1558,7 +1557,7 @@ label {}
 
 #navigation.small-screen #menu-button {
     display: block;
-    padding: 15px;
+    /* padding: 15px; */
     color: #474747;
     cursor: pointer;
     font-size: 12px;
