@@ -8,230 +8,596 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-T0JYN2KHV4');
     </script>
+    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="hairstylist in London">
-    <meta name="keywords" content="hairstylist in London">
-    <title>Renniehair | Hairstylist in London</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
+    <meta name="description"
+        content="Get in touch with Renniehair. Professional hair stylist services based in London.">
+    <meta name="keywords" content="Hair Stylist London, Contact Renniehair, Hair Salon Barking, London Braid Stylist">
+    <title>Contact Us | Renniehair | Hairstylist in London</title>
+
+    <!-- Google Fonts & Font Awesome -->
     <link
-        href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7cMontserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
+        href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Playfair+Display:400,700&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <!-- Style -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+    <style>
+        /* --- Modern Design Token System --- */
+        :root {
+            --primary-color: #111111;
+            --accent-color: #c5a880;
+            /* Elegant Luxury Gold */
+            --bg-light: #faf9f6;
+            /* Soft Bone White */
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --border-color: #eaeaea;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        /* --- Header Navigation --- */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+        }
+
+        .navigation ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .navigation a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .navigation a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition-smooth);
+        }
+
+        .navigation li.active a,
+        .navigation a:hover {
+            color: var(--accent-color);
+        }
+
+        .navigation a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Page Header Section --- */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/page-header.jpg') no-repeat center center/cover;
+            background-color: #1a1a1a;
+            padding: 60px 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .page-breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb li+li::before {
+            content: "/";
+            padding-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .breadcrumb a {
+            color: #b5b5b5;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        .breadcrumb li.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* --- Main Layout Grid --- */
+        .content-section {
+            padding: 90px 20px;
+            background-color: var(--bg-light);
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+        }
+
+        /* --- Contact Info Sidebar --- */
+        .contact-info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget-contact {
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title-style {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .widget-title-style::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        address {
+            font-style: normal;
+            font-size: 0.95rem;
+            color: #444444;
+            line-height: 2;
+            margin-bottom: 25px;
+        }
+
+        address strong {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        address a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-circle {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-circle a {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .social-circle a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* --- Form Architecture --- */
+        .contact-form-wrapper {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .form-group-full {
+            grid-column: span 2;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            border: 1px solid #cccccc;
+            background-color: #ffffff;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: #fffbF7;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 14px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+
+        /* --- Footer Structural Block --- */
+        .footer {
+            background-color: #0b0b0b;
+            color: #b5b5b5;
+            padding: 70px 20px 20px 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #222222;
+            padding-bottom: 40px;
+        }
+
+        .footer-widget h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-widget ul {
+            list-style: none;
+        }
+
+        .footer-widget li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-widget i {
+            color: var(--accent-color);
+            width: 18px;
+        }
+
+        .footer-widget a:hover {
+            color: #ffffff;
+        }
+
+        .tiny-footer {
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: #666666;
+        }
+
+        .tiny-footer a {
+            color: #888;
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Structure --- */
+        @media (max-width: 991px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group-full {
+                grid-column: span 1;
+            }
+
+            .tiny-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <!-- Header Navigation Node -->
     <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <a href="index.html"><img src="images/logo.jpeg" width="60" height="60" alt=""
-                            style="border-radius: 3px;"></a>
-                </div>
-                <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
-                    <div class="navigation">
-                        <div id="navigation">
-                            <ul>
-                                <li><a href="/" title="Home">Home</a></li>
-                                <li><a href="about.html" title="About">About us</a></li>
-                                <li><a href="booking.html" title="Booking Policy">Booking Policy</a></li>
-                                <li><a href="gallery.html" title="Gallery">Gallery</a></li>
-                                <li class="active"><a href="contact.html" title="Contact Us">Contact</a> </li>
-                                <!-- <li><a href="styleguide.html" title="Styleguide">styleguide</a> </li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <div class="nav-container">
+            <a href="index.html">
+                <img class="logo" src="images/logo.jpeg" width="55" height="55" alt="Renniehair Logo">
+            </a>
+
+            <button class="menu-toggle" id="mobile-menu-trigger" aria-label="Toggle navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="navigation" id="navigation-panel">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="booking.html">Booking Policy</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
         </div>
     </div>
+
+    <!-- Minimal Breadcrumb Section -->
     <div class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="page-caption">
-                        <h2 class="page-title">Contact us</h2>
-                        <div class="page-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li><a href="index.html">Home</a></li>
-                                <li class="active">Contact us</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
+        <div class="page-caption">
+            <h2 class="page-title">Contact Us</h2>
+            <div class="page-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Contact Us</li>
+                </ol>
             </div>
         </div>
     </div>
-    <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="widget widget-contact">
-                        <!-- widget search -->
-                        <h3 class="widget-title">Contact Info</h3>
-                        <address>
-                            <strong>Renniehair</strong>
-                            <br> London Road, Barking
-                            <br> London, UK
-                            <br>
-                            <abbr title="Phone">P:</abbr> +447424453028
-                        </address>
-                        <address>
-                            <strong>Contact Name</strong>
-                            <br>
-                            <a href="mailto:#">renniehair@gmail.com</a>
-                        </address>
-                    </div>
-                    <!-- /.widget search -->
-                    <div class="widget widget-social">
-                        <div class="social-circle">
-                            <a href="#" class="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <h1>Contact Form</h1>
-                            <p> Please complete the form below. We'll do everything we can to respond to you as quickly
-                                as possible.</p>
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label class="control-label" for="name">name</label>
-                                        <input type="text" name="name" id="name" placeholder="" class="form-control">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label" for="phone">phone</label>
-                                        <input type="text" name="phone" id="phone" placeholder="" class="form-control">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label" for="email">email</label>
-                                        <input type="text" name="email" id="email" placeholder="" class="form-control">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="control-label" for="Subject">Subject</label>
-                                        <input type="text" name="Subject" id="Subject" placeholder=""
-                                            class="form-control">
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <label class="control-label" for="textarea">Message</label>
-                                            <textarea class="form-control" id="textarea" name="textarea" rows="6"
-                                                placeholder=""></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <a href="mailto:renniehair@gmail.com"><button id="singlebutton"
-                                                    name="singlebutton" class="btn btn-default">send
-                                                    message</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+
+    <!-- Content Architecture Area -->
+    <div class="content-section">
+        <div class="contact-container">
+
+            <!-- Left Sidebar Contact Units -->
+            <div class="contact-info-sidebar">
+                <div class="widget-contact">
+                    <h3 class="widget-title-style">Contact Info</h3>
+                    <address>
+                        <strong>Renniehair HQ</strong>
+                        London Road, Barking<br>
+                        London, UK<br>
+                        <span><strong>Phone:</strong> +447424453028</span>
+                    </address>
+                    <address>
+                        <strong>Email Enquiries</strong>
+                        <a href="mailto:renniehair@gmail.com">renniehair@gmail.com</a>
+                    </address>
+
+                    <div class="social-circle">
+                        <a href="https://instagram.com/hairstylistinlondon" target="_blank"><i
+                                class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
                     </div>
                 </div>
             </div>
+
+            <!-- Right Interactive Form Module -->
+            <div class="contact-form-wrapper">
+                <h1 class="form-main-title">Get In Touch</h1>
+                <p class="form-subtitle">Please fill out the clean service questionnaire form below. We aim to process
+                    and reply to all stylist bookings and queries as quickly as possible.</p>
+
+                <form id="contactForm">
+                    <div class="form-grid">
+                        <div>
+                            <label class="control-label" for="name">Your Name</label>
+                            <input type="text" name="name" id="name" placeholder="e.g. Jane Doe" class="form-control"
+                                required>
+                        </div>
+                        <div>
+                            <label class="control-label" for="phone">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" placeholder="e.g. +44 7123 456789"
+                                class="form-control">
+                        </div>
+                        <div class="form-group-full">
+                            <label class="control-label" for="email">Email Address</label>
+                            <input type="email" name="email" id="email" placeholder="name@example.com"
+                                class="form-control" required>
+                        </div>
+                        <div class="form-group-full">
+                            <label class="control-label" for="Subject">Subject</label>
+                            <input type="text" name="Subject" id="Subject"
+                                placeholder="Booking query, customization, etc." class="form-control" required>
+                        </div>
+                        <div class="form-group-full">
+                            <label class="control-label" for="textarea">Your Message</label>
+                            <textarea class="form-control" id="textarea" name="textarea" rows="6"
+                                placeholder="Describe the hairstyle service or details you are interested in..."
+                                required></textarea>
+                        </div>
+                        <div class="form-group-full">
+                            <button type="submit" id="singlebutton" name="singlebutton" class="btn-submit">Send
+                                Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
+
+    <!-- Styled Global Footer Area -->
     <div class="footer">
-        <!-- footer-->
-        <div class="container">
-            <div class="footer-block">
-                <!-- footer block -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="footer-widget">
-                            <h2 class="widget-title">Address</h2>
-                            <ul class="listnone contact">
-                                <li><i class="fa fa-map-marker"></i> London Road, Barking, London, UK </li>
-                                <li><i class="fa fa-phone"></i>+447424453028</li>
-                                <li><i class="fa fa-envelope-o"></i> renniehair@gmail.com</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="footer-widget footer-social">
-                            <!-- social block -->
-                            <h2 class="widget-title">Social Feed</h2>
-                            <ul class="listnone">
-                                <li>
-                                    <a href="https://instagram.com/hairstylistinlondon"> <i class="fa fa-instagram"></i>
-                                        Instagram </a>
-                                </li>
-                                <!-- <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i> Google Plus</a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i> Linked In</a></li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-youtube"></i>Youtube</a>
-                                    </li> -->
-                            </ul>
-                        </div>
-                        <!-- /.social block -->
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                        <div class="footer-widget widget-newsletter">
-                            <!-- newsletter block -->
-                            <h2 class="widget-title">Website</h2>
-                            <ul class="listnone">
-                                <li>
-                                    <a href="#"> <i class="fa fa-globe"></i>
-                                        website </a>
-                                </li>
-                            </ul>
-                            <!-- /input-group -->
-                        </div>
-                        <!-- newsletter block -->
-                    </div>
-                </div>
-                <div class="tiny-footer">
-                    <!-- tiny footer block -->
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="copyright-content">
-                                <p>© Renniehair 2023 | all rights reserved</p>
-                                Hero Image by <a
-                                    href="https://www.freepik.com/free-photo/stylist-woman-taking-care-her-client-afro-hair_22377900.htm#query=african%20american%20hair%20salon&position=31&from_view=keyword&track=ais">Freepik</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.tiny footer block -->
+        <div class="footer-container">
+            <div class="footer-widget">
+                <h2 class="widget-title">Address</h2>
+                <ul>
+                    <li><i class="fa fa-map-marker"></i> London Road, Barking, London, UK</li>
+                    <li><i class="fa fa-phone"></i> +447424453028</li>
+                    <li><i class="fa fa-envelope-o"></i> renniehair@gmail.com</li>
+                </ul>
             </div>
-            <!-- /.footer block -->
+            <div class="footer-widget">
+                <h2 class="widget-title">Social Feed</h2>
+                <ul>
+                    <li>
+                        <a href="https://instagram.com/hairstylistinlondon" target="_blank">
+                            <i class="fa fa-instagram"></i> Instagram
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h2 class="widget-title">Website</h2>
+                <ul>
+                    <li><a href="#"><i class="fa fa-globe"></i> Return to Top</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tiny-footer">
+            <p>© Renniehair 2026 | All Rights Reserved</p>
+            <p>Hero Image by <a href="https://www.freepik.com" target="_blank">Freepik</a></p>
         </div>
     </div>
-    <!-- /.footer-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/menumaker.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/sticky-header.js"></script>
-    <script src="js/contact.js"></script>
+
 </body>
 
 </html>

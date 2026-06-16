@@ -8,240 +8,671 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-T0JYN2KHV4');
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Hairstylist in London">
-    <meta name="keywords" content="Hairstylist in London">
-    <title>Renniehair | Hairstylist in London</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
+    <meta name="description"
+        content="Explore the Renniehair luxury gallery. Premium hair styling, braiding, and wig installations in London.">
+    <meta name="keywords"
+        content="Hair Gallery London, Braids Showcase, Knotless Braids London, Wig Installation Barking">
+    <title>Gallery | Renniehair | Hairstylist in London</title>
+
+    <!-- Google Fonts & Font Awesome -->
     <link
-        href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7cMontserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
+        href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Playfair+Display:400,700&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <!-- Style -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="./images/logo.jpeg" type="image/x-icon">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* --- Modern Design Token System --- */
+        :root {
+            --primary-color: #111111;
+            --accent-color: #c5a880;
+            /* Elegant Luxury Gold */
+            --bg-dark-section: #141316;
+            /* Sophisticated Dark Background for Gallery */
+            --border-color: #eaeaea;
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #222222;
+            background-color: #ffffff;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        /* --- Header Navigation --- */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+        }
+
+        .navigation ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .navigation a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #222222;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .navigation a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition-smooth);
+        }
+
+        .navigation li.active a,
+        .navigation a:hover {
+            color: var(--accent-color);
+        }
+
+        .navigation a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Page Header Section --- */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('images/hero.jpg') no-repeat center center/cover;
+            background-color: #1a1a1a;
+            padding: 60px 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .page-breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb li+li::before {
+            content: "/";
+            padding-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .breadcrumb a {
+            color: #b5b5b5;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        .breadcrumb li.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* --- Premium Gallery Showcase Module --- */
+        .gallery-section {
+            padding: 100px 20px;
+            background-color: var(--bg-dark-section);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .gallery-intro h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .gallery-intro p {
+            font-size: 1rem;
+            color: #a5a4a7;
+            font-weight: 300;
+        }
+
+        /* Hero Showcase Slider Container */
+        .slideshow-container {
+            max-width: 750px;
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #2a282d;
+            background-color: #1a191d;
+        }
+
+        /* Hide slides by default */
+        .mySlides {
+            display: none;
+            position: relative;
+            width: 100%;
+            /* Forces a stable 4:5 artistic frame ratio to stop sizing jumps */
+            aspect-ratio: 4 / 5;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Premium Dark Gradient Overlay for Typography Clarity */
+        .mySlides::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 45%;
+            background: linear-gradient(to top, rgba(10, 10, 12, 0.95) 0%, rgba(10, 10, 12, 0.4) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* Interactive Navigation Arrows */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: var(--transition-smooth);
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(17, 17, 17, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 10;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* Artistic Caption Typography Inside Slide Frame */
+        .text {
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            position: absolute;
+            bottom: 35px;
+            left: 40px;
+            right: 40px;
+            text-align: left;
+            z-index: 5;
+        }
+
+        /* Modern Minimal Index Tag */
+        .numbertext {
+            color: var(--accent-color);
+            background: rgba(17, 17, 17, 0.7);
+            backdrop-filter: blur(4px);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border-radius: 20px;
+            z-index: 5;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Clean Modern Carousel Indicators */
+        .dot-wrapper {
+            text-align: center;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 600px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 8px;
+            width: 8px;
+            background-color: #3a383d;
+            border-radius: 50%;
+            display: inline-block;
+            transition: var(--transition-smooth);
+        }
+
+        .dot:hover,
+        .active-dot {
+            background-color: var(--accent-color);
+            transform: scale(1.3);
+        }
+
+        /* Subtle Luxury Fade Animation */
+        .fade {
+            animation: fadeEffect 0.7s ease-in-out;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0.4;
+                transform: scale(1.01);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* --- Footer Structural Block --- */
+        .footer {
+            background-color: #0b0b0b;
+            color: #b5b5b5;
+            padding: 70px 20px 20px 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #222222;
+            padding-bottom: 40px;
+        }
+
+        .footer-widget h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-widget ul {
+            list-style: none;
+        }
+
+        .footer-widget li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-widget i {
+            color: var(--accent-color);
+            width: 18px;
+        }
+
+        .footer-widget a:hover {
+            color: #ffffff;
+        }
+
+        .tiny-footer {
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: #666666;
+        }
+
+        .tiny-footer a {
+            color: #888;
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Structure --- */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            .gallery-section {
+                padding: 60px 15px;
+            }
+
+            .text {
+                font-size: 1.2rem;
+                bottom: 25px;
+                left: 25px;
+            }
+
+            .prev,
+            .next {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .tiny-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <!-- Header Navigation Node -->
     <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <a href="index.html"><img src="images/logo.jpeg" width="60" height="60" alt=""
-                            style="border-radius: 3px;"></a>
-                </div>
-                <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
-                    <div class="navigation">
-                        <div id="navigation">
-                            <ul>
-                                <li><a href="/" title="Home">Home</a></li>
-                                <li><a href="about.html" title="About">About Us</a></li>
-                                <li><a href="booking.html" title="Booking Policy">Booking Policy</a></li>
-                                <li class="active"><a href="gallery.html" title="Gallery">Gallery</a></li>
-                                <li><a href="contact.html" title="Contact Us">Contact</a> </li>
-                                <!-- <li><a href="styleguide.html" title="Styleguide">styleguide</a> </li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <div class="nav-container">
+            <a href="index.html">
+                <img class="logo" src="images/logo.jpeg" width="55" height="55" alt="Renniehair Logo">
+            </a>
+
+            <button class="menu-toggle" id="mobile-menu-trigger" aria-label="Toggle navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="navigation" id="navigation-panel">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="booking.html">Booking Policy</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
         </div>
     </div>
+
+    <!-- Minimal Breadcrumb Section -->
     <div class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="page-caption">
-                        <h2 class="page-title">Gallery</h2>
-                        <div class="page-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li><a href="index.html">Home</a></li>
-                                <li class="active">Gallery</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
+        <div class="page-caption">
+            <h2 class="page-title">Gallery</h2>
+            <div class="page-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Gallery</li>
+                </ol>
             </div>
         </div>
     </div>
-    <div class="space-medium" style="background-color: #1e1c23;">
+
+    <!-- Premium Gallery Showcase Section -->
+    <div class="gallery-section">
+        <div class="gallery-intro">
+            <h1>Our Lookbook</h1>
+            <p>Immerse yourself in precision-crafted hair excellence. Discover stunning visual transformations across
+                our signature braids, weaves, installs, and natural styling treatments.</p>
+        </div>
+
         <div class="slideshow-container">
 
-            <!-- Full-width images with number and caption text -->
+            <!-- Slide 1 -->
             <div class="mySlides fade">
                 <div class="numbertext">1 / 9</div>
                 <img src="https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/category/86744294/149069767/1689546925416-817603197/Men_cornle_duration_1hr_cos_£30_jpg"
-                    style="width: 100%; height: 500px;">
+                    alt="Men Cornrow">
                 <div class="text">Men Cornrow</div>
             </div>
 
+            <!-- Slide 2 -->
             <div class="mySlides fade">
                 <div class="numbertext">2 / 9</div>
-                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3735109428.jpg" style="width:100%">
+                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3735109428.jpg" alt="Ponytail Cornrow">
                 <div class="text">Ponytail Cornrow</div>
             </div>
 
+            <!-- Slide 3 -->
             <div class="mySlides fade">
                 <div class="numbertext">3 / 9</div>
-                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734831577.jpg" style="width:100%">
+                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734831577.jpg" alt="Kinkin Twist">
                 <div class="text">Kinkin Twist</div>
             </div>
+
+            <!-- Slide 4 -->
             <div class="mySlides fade">
                 <div class="numbertext">4 / 9</div>
-                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734754651.jpg" style="width:100%">
+                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734754651.jpg"
+                    alt="Fulani Goddess Braids">
                 <div class="text">Fulani Goddess Braids</div>
             </div>
+
+            <!-- Slide 5 -->
             <div class="mySlides fade">
                 <div class="numbertext">5 / 9</div>
                 <img src="https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/category/86744294/0/1689661481865-936394466/Installation_of_wig_on_a_cap_dutation_2hrs__cost_80_jpg"
-                    style="width:100%">
+                    alt="Wig Installation on a Cap">
                 <div class="text">Wig Installation on a Cap</div>
             </div>
+
+            <!-- Slide 6 -->
             <div class="mySlides fade">
                 <div class="numbertext">6 / 9</div>
-                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3736694297.jpg" style="width:100%">
+                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3736694297.jpg"
+                    alt="Kids Cornrow Natural Hair">
                 <div class="text">Kids Cornrow (Natural Hair)</div>
             </div>
+
+            <!-- Slide 7 -->
             <div class="mySlides fade">
                 <div class="numbertext">7 / 9</div>
-                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734752467.jpg" style="width:100%">
+                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734752467.jpg"
+                    alt="Medium Knotless Braids">
                 <div class="text">Medium Knotless Braids</div>
             </div>
+
+            <!-- Slide 8 -->
             <div class="mySlides fade">
                 <div class="numbertext">8 / 9</div>
-                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734739729.jpg"
-                    style="width:100%; height: 500px;">
+                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3734739729.jpg" alt="Knotless Braids">
                 <div class="text">Knotless Braids</div>
             </div>
+
+            <!-- Slide 9 -->
             <div class="mySlides fade">
                 <div class="numbertext">9 / 9</div>
-                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3736507854.jpg" style="width:100%">
+                <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/86744294/3736507854.jpg"
+                    alt="Kids Cornrow Attachment">
                 <div class="text">Kids Cornrow (Attachment)</div>
             </div>
 
-            <!-- Next and previous buttons
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+            <!-- Manual Controls -->
+            <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlides(1)">&#10095;</a>
         </div>
-        <br>
 
-        <!-- The dots/circles -->
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+        <!-- Carousel Pagination Bullets -->
+        <div class="dot-wrapper">
+            <span class="dot" onclick="jumpToSlide(1)"></span>
+            <span class="dot" onclick="jumpToSlide(2)"></span>
+            <span class="dot" onclick="jumpToSlide(3)"></span>
+            <span class="dot" onclick="jumpToSlide(4)"></span>
+            <span class="dot" onclick="jumpToSlide(5)"></span>
+            <span class="dot" onclick="jumpToSlide(6)"></span>
+            <span class="dot" onclick="jumpToSlide(7)"></span>
+            <span class="dot" onclick="jumpToSlide(8)"></span>
+            <span class="dot" onclick="jumpToSlide(9)"></span>
         </div>
     </div>
+
+    <!-- Styled Global Footer Area -->
     <div class="footer">
-        <!-- footer-->
-        <div class="container">
-            <div class="footer-block">
-                <!-- footer block -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="footer-widget">
-                            <h2 class="widget-title">Address</h2>
-                            <ul class="listnone contact">
-                                <li><i class="fa fa-map-marker"></i> London Road, Barking, London, UK </li>
-                                <li><i class="fa fa-phone"></i>+447424453028</li>
-                                <li><i class="fa fa-envelope-o"></i> renniehair@gmail.com</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="footer-widget footer-social">
-                            <!-- social block -->
-                            <h2 class="widget-title">Social Feed</h2>
-                            <ul class="listnone">
-                                <li>
-                                    <a href="https://instagram.com/hairstylistinlondon"> <i class="fa fa-instagram"></i>
-                                        Instagram </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!-- /.social block -->
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                        <div class="footer-widget widget-newsletter">
-                            <!-- newsletter block -->
-                            <h2 class="widget-title">Website</h2>
-                            <ul class="listnone">
-                                <li>
-                                    <a href="#"> <i class="fa fa-globe"></i>
-                                        website </a>
-                                </li>
-                            </ul>
-                            <!-- /input-group -->
-                        </div>
-                        <!-- newsletter block -->
-                    </div>
-                </div>
-                <div class="tiny-footer">
-                    <!-- tiny footer block -->
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="copyright-content">
-                                <p>© Renniehair 2023 | all rights reserved</p>
-                                Hero Image by <a
-                                    href="https://www.freepik.com/free-photo/stylist-woman-taking-care-her-client-afro-hair_22377900.htm#query=african%20american%20hair%20salon&position=31&from_view=keyword&track=ais">Freepik</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.tiny footer block -->
+        <div class="footer-container">
+            <div class="footer-widget">
+                <h2 class="widget-title">Address</h2>
+                <ul>
+                    <li><i class="fa fa-map-marker"></i> London Road, Barking, London, UK</li>
+                    <li><i class="fa fa-phone"></i> +447424453028</li>
+                    <li><i class="fa fa-envelope-o"></i> renniehair@gmail.com</li>
+                </ul>
             </div>
-            <!-- /.footer block -->
+            <div class="footer-widget">
+                <h2 class="widget-title">Social Feed</h2>
+                <ul>
+                    <li>
+                        <a href="https://instagram.com/hairstylistinlondon" target="_blank">
+                            <i class="fa fa-instagram"></i> Instagram
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h2 class="widget-title">Website</h2>
+                <ul>
+                    <li><a href="#"><i class="fa fa-globe"></i> Return to Top</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tiny-footer">
+            <p>© Renniehair 2026 | All Rights Reserved</p>
+            <p>Hero Image by <a href="https://www.freepik.com" target="_blank">Freepik</a></p>
         </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/menumaker.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/sticky-header.js"></script>
-    <script>
-        let slideIndex = 0;
-        showSlides();
 
-        function showSlides() {
+    <!-- Responsive Interactive Showcase Logic -->
+    <script>
+        let slideIndex = 1;
+        let autoPlayTimer;
+
+        renderShowcase();
+
+        function moveSlides(n) {
+            clearInterval(autoPlayTimer);
+            renderShowcase(slideIndex += n);
+            startAutoPlay();
+        }
+
+        function jumpToSlide(n) {
+            clearInterval(autoPlayTimer);
+            renderShowcase(slideIndex = n);
+            startAutoPlay();
+        }
+
+        function renderShowcase() {
             let i;
             let slides = document.getElementsByClassName("mySlides");
             let dots = document.getElementsByClassName("dot");
+
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            if (slideIndex < 1) { slideIndex = slides.length }
+
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
             for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active-dot", "");
+                dots[i].classList.remove("active-dot");
             }
+
             slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active-dot";
-            setTimeout(showSlides, 5000); // Change image every 5 seconds
+            dots[slideIndex - 1].classList.add("active-dot");
         }
+
+        function startAutoPlay() {
+            autoPlayTimer = setInterval(() => {
+                slideIndex++;
+                renderShowcase();
+            }, 5000); // Transitions automatically every 5 seconds
+        }
+
+        // Initialize background autoplay safely
+        startAutoPlay();
     </script>
 </body>
 
